@@ -82,4 +82,79 @@
 | `hb_vmPushAliasedField` | `static void hb_vmPushAliasedField( PHB_SYMB pSym )` | `pSym`: Aliased field symbol. | Pushes an aliased field onto the eval stack. | None |
 | `hb_vmPushAliasedVar` | `static void hb_vmPushAliasedVar( PHB_SYMB pSym )` | `pSym`: Aliased variable symbol. | Pushes an aliased variable onto the eval stack. | None |
 | `hb_vmPushBlock` | `static void hb_vmPushBlock( const HB_BYTE * pCode, PHB_SYMB pSymbols, HB_SIZE nLen )` | `pCode`: Code block. <br> `pSymbols`: Symbols. <br> `nLen`: Length of the code block. | Creates a codeblock and pushes it onto the stack. | None |
-| `hb_vmPushBlockShort` | `static void hb_vmPushBlock
+| `hb_vmPushBlockShort` | `static void hb_vmPushBlockShort( const HB_BYTE * pCode, PHB_SYMB pSymbols, HB_SIZE nLen )` | `pCode`: Pointer to the code block. <br> `pSymbols`: Pointer to the symbols. <br> `nLen`: Length of the code block. | Creates a code block. | None |
+| `hb_vmPushDoubleConst` | `static void hb_vmPushDoubleConst( double dNumber, int iWidth, int iDec )` | `dNumber`: Double value to push. <br> `iWidth`: Width of the double value. <br> `iDec`: Number of decimal places. | Pushes a double constant onto the stack. | None |
+| `hb_vmPushEvalSym` | `void hb_vmPushEvalSym( void )` | None | Pushes the evaluation symbol onto the stack. | None |
+| `hb_vmPushFuncSymbol` | `void hb_vmPushFuncSymbol( PHB_SYMB pSym )` | `pSym`: Pointer to the function symbol. | Pushes a function symbol onto the stack. | None |
+| `hb_vmPushIntegerConst` | `static void hb_vmPushIntegerConst( int iNumber )` | `iNumber`: Integer value to push. | Pushes an integer constant onto the stack. | None |
+| `hb_vmPushItemRef` | `void hb_vmPushItemRef( PHB_ITEM pItem )` | `pItem`: Pointer to the item. | Pushes a reference to an item onto the stack. | None |
+| `hb_vmPushLongConst` | `static void hb_vmPushLongConst( long lNumber )` | `lNumber`: Long value to push. | Pushes a long constant onto the stack. | None |
+| `hb_vmPushMacroBlock` | `static void hb_vmPushMacroBlock( const HB_BYTE * pCode, HB_SIZE nSize, HB_USHORT usParams )` | `pCode`: Pointer to the code block. <br> `nSize`: Size of the code block. <br> `usParams`: Number of parameters. | Creates a macro-compiled code block. | None |
+| `hb_vmPushObjectVarRef` | `static void hb_vmPushObjectVarRef( void )` | None | Pushes a reference to an object variable onto the stack. | None |
+| `hb_vmPushStatic` | `static void hb_vmPushStatic( HB_USHORT uiStatic )` | `uiStatic`: Index of the static variable. | Pushes the content of a static variable onto the stack. | None |
+| `hb_vmPushStaticByRef` | `static void hb_vmPushStaticByRef( HB_USHORT uiStatic )` | `uiStatic`: Index of the static variable. | Pushes a reference to a static variable onto the stack. | None |
+| `hb_vmPushUnRef` | `static void hb_vmPushUnRef( void )` | None | Pushes the unreferenced latest value onto the stack. | None |
+| `hb_vmPushVariable` | `static void hb_vmPushVariable( PHB_SYMB pVarSymb )` | `pVarSymb`: Pointer to the variable symbol. | Pushes an undeclared variable onto the stack. | None |
+| `hb_vmReqEndProc` | `void hb_vmRequestEndProc( void )` | None | Requests the end of a procedure. | None |
+| `hb_vmReqQuit` | `void hb_vmRequestQuit( void )` | None | Requests to quit the VM. | None |
+| `hb_vmSeqBlock` | `static void hb_vmSeqBlock( void )` | None | Sets the begin sequence with a code block. | None |
+| `hb_vmSetDynFunc` | `void hb_vmSetDynFunc( PHB_DYNS pDynSym )` | `pDynSym`: Pointer to the dynamic symbol. | Sets a dynamic function. | None |
+| `hb_vmSetFunction` | `void hb_vmSetFunction( PHB_SYMB pOldSym, PHB_SYMB pNewSym )` | `pOldSym`: Pointer to the old symbol. <br> `pNewSym`: Pointer to the new symbol. | Sets a function symbol. | None |
+| `hb_vmSetKeyPool` | `HB_BOOL hb_vmSetKeyPool( HB_BOOL fEnable )` | `fEnable`: Enable or disable the key pool. | Sets the key pool status. | Returns `HB_TRUE` if successful, `HB_FALSE` otherwise. |
+| `hb_vmStaticsClear` | `static void hb_vmStaticsClear( void )` | None | Clears complex static variables. | None |
+| `hb_vmStaticsRelease` | `static void hb_vmStaticsRelease( void )` | None | Releases arrays with static variables. | None |
+| `hb_vmSuper` | `void hb_vmSuper( void )` | None | Calls a superclass method. | None |
+| `hb_vmSwitch` | `static const HB_BYTE * hb_vmSwitch( const HB_BYTE * pCode, HB_USHORT casesCnt )` | `pCode`: Pointer to the code. <br> `casesCnt`: Number of cases. | Makes a switch statement. | Returns the pointer to the next code. |
+| `hb_vmSwap` | `static void hb_vmSwap( int iCount )` | `iCount`: Number of items to swap. | Swaps items on the stack. | None |
+| `hb_vmSwapAlias` | `static void hb_vmSwapAlias( void )` | None | Swaps items on the evaluation stack and pops the workarea number. | None |
+| `hb_vmTSVarClean` | `static void hb_vmTSVarClean( void * pThreadItem )` | `pThreadItem`: Pointer to the thread item. | Cleans thread static variables. | None |
+| `hb_vmTSVarMark` | `static void hb_vmTSVarMark( void * value )` | `value`: Value to mark. | Marks thread static variables. | None |
+| `hb_vmTerminateThreads` | `void hb_vmTerminateThreads( void )` | None | Terminates all threads. | None |
+| `hb_vmThreadInit` | `void hb_vmThreadInit( void * Cargo )` | `Cargo`: Pointer to the thread cargo. | Initializes a thread. | None |
+| `hb_vmThreadIsMain` | `HB_BOOL hb_vmThreadIsMain( void * Cargo )` | `Cargo`: Pointer to the thread cargo. | Checks if the current thread is the main thread. | Returns `HB_TRUE` if it is the main thread, `HB_FALSE` otherwise. |
+| `hb_vmThreadQuit` | `void hb_vmThreadQuit( void )` | None | Quits the current thread. | None |
+| `hb_vmThreadRelease` | `void hb_vmThreadRelease( void * Cargo )` | `Cargo`: Pointer to the thread cargo. | Releases a thread. | None |
+| `hb_vmThreadStart` | `PHB_ITEM hb_vmThreadStart( HB_ULONG ulAttr, PHB_CARGO_FUNC pFunc, void * cargo )` | `ulAttr`: Thread attributes. <br> `pFunc`: Pointer to the function to run. <br> `cargo`: Pointer to the thread cargo. | Starts a new thread. | Returns the thread item. |
+| `hb_vmTryEval` | `HB_BOOL hb_vmTryEval( PHB_ITEM * pResult, PHB_ITEM pItem, HB_ULONG ulPCount, ... )` | `pResult`: Pointer to the result item. <br> `pItem`: Pointer to the item to evaluate. <br> `ulPCount`: Number of parameters. | Tries to evaluate an item. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_vmVFrame` | `static void hb_vmVFrame( HB_USHORT usLocals, unsigned char ucParams )` | `usLocals`: Number of local variables. <br> `ucParams`: Number of parameters. | Increases the stack pointer for the amount of locals and variable number of parameters supplied. | None |
+| `hb_vmVerifyPCodeVersion` | `static void hb_vmVerifyPCodeVersion( const char * szModuleName, HB_USHORT uiPCodeVer )` | `szModuleName`: Name of the module. <br> `uiPCodeVer`: PCode version. | Verifies the PCode version. | None |
+| `hb_xvmAddInt` | `HB_BOOL hb_xvmAddInt( HB_LONG lAdd )` | `lAdd`: Integer value to add. | Adds an integer to the stack. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmAlwaysBegin` | `HB_BOOL hb_xvmAlwaysBegin( void )` | None | Begins an always block. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmAlwaysEnd` | `HB_BOOL hb_xvmAlwaysEnd( void )` | None | Ends an always block. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmAnd` | `HB_BOOL hb_xvmAnd( void )` | None | Performs a logical AND operation. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmArrayDim` | `void hb_xvmArrayDim( HB_USHORT uiDimensions )` | `uiDimensions`: Number of dimensions. | Generates an array with the specified number of dimensions. | None |
+| `hb_xvmArrayGen` | `void hb_xvmArrayGen( HB_SIZE nElements )` | `nElements`: Number of elements. | Generates an array and fills it with elements from the stack. | None |
+| `hb_xvmArrayItemPop` | `HB_BOOL hb_xvmArrayItemPop( HB_SIZE nIndex )` | `nIndex`: Index of the array item. | Pops an array item. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmArrayItemPush` | `HB_BOOL hb_xvmArrayItemPush( HB_SIZE nIndex )` | `nIndex`: Index of the array item. | Pushes an array item. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmArrayPush` | `HB_BOOL hb_xvmArrayPush( void )` | None | Pushes an array element onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmArrayPushRef` | `HB_BOOL hb_xvmArrayPushRef( void )` | None | Pushes a reference to an array element onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmDivEq` | `HB_BOOL hb_xvmDivEq( void )` | None | Divides the top two stack elements and stores the result. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmDivEqPop` | `HB_BOOL hb_xvmDivEqPop( void )` | None | Divides and pops the stack elements. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmDivide` | `HB_BOOL hb_xvmDivide( void )` | None | Divides the top two stack elements. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmDivideByInt` | `HB_BOOL hb_xvmDivideByInt( HB_LONG lDivisor )` | `lDivisor`: Integer divisor. | Divides by an integer. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmDuplUnRef` | `void hb_xvmDuplUnRef( void )` | None | Duplicates and unreferences the top stack element. | None |
+| `hb_xvmDuplicate` | `void hb_xvmDuplicate( void )` | None | Duplicates the top stack element. | None |
+| `hb_xvmEqual` | `HB_BOOL hb_xvmEqual( void )` | None | Checks if the top two stack elements are equal. | Returns `HB_TRUE` if equal, `HB_FALSE` otherwise. |
+| `hb_xvmEqualInt` | `HB_BOOL hb_xvmEqualInt( HB_LONG lValue )` | `lValue`: Integer value to compare. | Checks if the top stack element is equal to an integer. | Returns `HB_TRUE` if equal, `HB_FALSE` otherwise. |
+| `hb_xvmEqualIntIs` | `HB_BOOL hb_xvmEqualIntIs( HB_LONG lValue, HB_BOOL * pfValue )` | `lValue`: Integer value to compare. <br> `pfValue`: Pointer to store the result. | Checks if the top stack element is equal to an integer and stores the result. | Returns `HB_TRUE` if equal, `HB_FALSE` otherwise. |
+| `hb_xvmExactlyEqual` | `HB_BOOL hb_xvmExactlyEqual( void )` | None | Checks if the top two stack elements are exactly equal. | Returns `HB_TRUE` if exactly equal, `HB_FALSE` otherwise. |
+| `hb_xvmExpEq` | `HB_BOOL hb_xvmExpEq( void )` | None | Exponentiates and stores the result. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmExpEqPop` | `HB_BOOL hb_xvmExpEqPop( void )` | None | Exponentiates and pops the stack elements. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmForTest` | `HB_BOOL hb_xvmForTest( void )` | None | Tests the end condition of a FOR loop. | Returns `HB_TRUE` if the end condition is met, `HB_FALSE` otherwise. |
+| `hb_xvmFuncPtr` | `void hb_xvmFuncPtr( void )` | None | Pushes a function address pointer onto the stack. | None |
+| `hb_xvmGreater` | `HB_BOOL hb_xvmGreater( void )` | None | Checks if the top stack element is greater than the next element. | Returns `HB_TRUE` if greater, `HB_FALSE` otherwise. |
+| `hb_xvmGreaterEqual` | `HB_BOOL hb_xvmGreaterEqual( void )` | None | Checks if the top stack element is greater than or equal to the next element. | Returns `HB_TRUE` if greater or equal, `HB_FALSE` otherwise. |
+| `hb_xvmGreaterEqualThenInt` | `HB_BOOL hb_xvmGreaterEqualThenInt( HB_LONG lValue )` | `lValue`: Integer value to compare. | Checks if the top stack element is greater than or equal to an integer. | Returns `HB_TRUE` if greater or equal, `HB_FALSE` otherwise. |
+| `hb_xvmGreaterEqualThenIntIs` | `HB_BOOL hb_xvmGreaterEqualThenIntIs( HB_LONG lValue, HB_BOOL * pfValue )` | `lValue`: Integer value to compare. <br> `pfValue`: Pointer to store the result. | Checks if the top stack element is greater than or equal to an integer and stores the result. | Returns `HB_TRUE` if greater or equal, `HB_FALSE` otherwise. |
+| `hb_xvmGreaterThenInt` | `HB_BOOL hb_xvmGreaterThenInt( HB_LONG lValue )` | `lValue`: Integer value to compare. | Checks if the top stack element is greater than an integer. | Returns `HB_TRUE` if greater, `HB_FALSE` otherwise. |
+| `hb_xvmGreaterThenIntIs` | `HB_BOOL hb_xvmGreaterThenIntIs( HB_LONG lValue, HB_BOOL * pfValue )` | `lValue`: Integer value to compare. <br> `pfValue`: Pointer to store the result. | Checks if the top stack element is greater than an integer and stores the result. | Returns `HB_TRUE` if greater, `HB_FALSE` otherwise. |
+| `hb_xvmInc` | `HB_BOOL hb_xvmInc( void )` | None | Increments the top stack element. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmIncEq` | `HB_BOOL hb_xvmIncEq( void )` | None | Increments and stores the result. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmIncEqPop` | `HB_BOOL hb_xvmIncEqPop( void )` | None | Increments and pops the stack elements. | Returns `HB_TRUE` on success, `HB_FALSE` otherwise. |
+| `hb_xvmLess` | `HB_BOOL hb_xvmLess( void )` | None | Checks if the top stack element is less than the next element. | Returns `HB_TRUE` if less, `HB_FALSE` otherwise. |
+| `hb_xvmLessEqual` | `HB_BOOL hb_xvmLessEqual( void )` | None | Checks if the top stack element is less than or equal to the next element. | Returns `HB_TRUE` if less or equal, `HB_FALSE` otherwise. |
+| `hb_xvmLessEqualThenInt` | `HB_BOOL hb_xvmLessEqualThenInt( HB_LONG lValue )` | `lValue`: Integer value to compare. | Checks if the top stack element is less than or equal to an integer. | Returns `HB_TRUE` if less or equal, `HB_FALSE` otherwise. |
+| `hb_xvmLessEqualThenIntIs` | `HB_BOOL hb_xvmLessEqualThenIntIs( HB_LONG lValue, HB_BOOL * pfValue )` | `lValue`: Integer value to compare. <br> `pfValue`: Pointer to store the result. | Checks if the top stack element is less than or equal to an integer and stores the result. | Returns `HB_TRUE` if less or equal, `HB_FALSE` otherwise. |
+| `hb_xvmLessThenInt` | `HB_BOOL hb_xvmLessThenInt( HB_LONG lValue )` | `lValue`: Integer value to compare. | Checks if the top stack element is less than an integer. | Returns `HB_TRUE` if less, `HB_FALSE` otherwise. |
+| `hb_xvmLessThenIntIs` | `HB_BOOL hb_xvmLessThenIntIs( HB_LONG lValue, HB_BOOL * pfValue )` | `lValue`: Integer value to compare. <br> `pfValue`: Pointer to store the result. | Checks if the top stack element is less than an integer and stores the
+
