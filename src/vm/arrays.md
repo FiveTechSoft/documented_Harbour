@@ -1,6 +1,5 @@
 # arrays.c (C Level) Functions Documentation
 
-```markdown
 # Array API (C Level) Functions Documentation
 
 | Function Name | Signature | Parameters | Description | Return Value |
