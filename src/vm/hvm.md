@@ -156,5 +156,68 @@
 | `hb_xvmLessEqualThenInt` | `HB_BOOL hb_xvmLessEqualThenInt( HB_LONG lValue )` | `lValue`: Integer value to compare. | Checks if the top stack element is less than or equal to an integer. | Returns `HB_TRUE` if less or equal, `HB_FALSE` otherwise. |
 | `hb_xvmLessEqualThenIntIs` | `HB_BOOL hb_xvmLessEqualThenIntIs( HB_LONG lValue, HB_BOOL * pfValue )` | `lValue`: Integer value to compare. <br> `pfValue`: Pointer to store the result. | Checks if the top stack element is less than or equal to an integer and stores the result. | Returns `HB_TRUE` if less or equal, `HB_FALSE` otherwise. |
 | `hb_xvmLessThenInt` | `HB_BOOL hb_xvmLessThenInt( HB_LONG lValue )` | `lValue`: Integer value to compare. | Checks if the top stack element is less than an integer. | Returns `HB_TRUE` if less, `HB_FALSE` otherwise. |
-| `hb_xvmLessThenIntIs` | `HB_BOOL hb_xvmLessThenIntIs( HB_LONG lValue, HB_BOOL * pfValue )` | `lValue`: Integer value to compare. <br> `pfValue`: Pointer to store the result. | Checks if the top stack element is less than an integer and stores the
+| `hb_xvmLessThenIntIs` | `HB_BOOL hb_xvmLessThenIntIs( HB_LONG lValue, HB_BOOL * pfValue )` | `lValue`: The integer value to compare. <br> `pfValue`: Pointer to store the result. | Checks if the latest value on the stack is less than the given integer and stores the result. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmLocalAdd` | `HB_BOOL hb_xvmLocalAdd( int iLocal )` | `iLocal`: The local variable index. | Adds the latest value on the stack to a local variable. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmLocalAddInt` | `HB_BOOL hb_xvmLocalAddInt( int iLocal, HB_LONG lAdd )` | `iLocal`: The local variable index. <br> `lAdd`: The integer value to add. | Adds an integer to a local variable. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmLocalDec` | `HB_BOOL hb_xvmLocalDec( int iLocal )` | `iLocal`: The local variable index. | Decrements the value of a local variable. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmLocalInc` | `HB_BOOL hb_xvmLocalInc( int iLocal )` | `iLocal`: The local variable index. | Increments the value of a local variable. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmLocalIncPush` | `HB_BOOL hb_xvmLocalIncPush( int iLocal )` | `iLocal`: The local variable index. | Increments the value of a local variable and pushes the result onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmLocalSetInt` | `void hb_xvmLocalSetInt( int iLocal, HB_LONG lValue )` | `iLocal`: The local variable index. <br> `lValue`: The integer value to set. | Sets the value of a local variable to an integer. | None |
+| `hb_xvmMacroArrayGen` | `HB_BOOL hb_xvmMacroArrayGen( HB_USHORT uiArgSets )` | `uiArgSets`: The number of argument sets. | Generates an array from macro arguments. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMacroDo` | `HB_BOOL hb_xvmMacroDo( HB_USHORT uiArgSets )` | `uiArgSets`: The number of argument sets. | Executes a function passing arguments set on the HVM stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMacroFunc` | `HB_BOOL hb_xvmMacroFunc( HB_USHORT uiArgSets )` | `uiArgSets`: The number of argument sets. | Executes a procedure passing arguments set on the HVM stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMacroPush` | `HB_BOOL hb_xvmMacroPush( int iFlags )` | `iFlags`: Flags for the macro push. | Pushes a macro item onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMacroPushIndex` | `HB_BOOL hb_xvmMacroPushIndex( void )` | None | Pushes a macro array index onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMacroPushPare` | `HB_BOOL hb_xvmMacroPushPare( int iFlags )` | `iFlags`: Flags for the macro push. | Pushes a macro parenthesis item onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMacroSend` | `HB_BOOL hb_xvmMacroSend( HB_USHORT uiArgSets )` | `uiArgSets`: The number of argument sets. | Sends a macro-compiled message. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmModEq` | `HB_BOOL hb_xvmModEq( void )` | None | Performs modulus assignment on the top two stack values. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmModEqPop` | `HB_BOOL hb_xvmModEqPop( void )` | None | Performs modulus assignment and pops the result from the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmModulus` | `HB_BOOL hb_xvmModulus( void )` | None | Calculates the modulus of the top two stack values. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmModulusByInt` | `HB_BOOL hb_xvmModulusByInt( HB_LONG lDivisor )` | `lDivisor`: The divisor integer. | Calculates the modulus of the top stack value by an integer. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMult` | `HB_BOOL hb_xvmMult( void )` | None | Multiplies the top two stack values. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMultByInt` | `HB_BOOL hb_xvmMultByInt( HB_LONG lValue )` | `lValue`: The integer value to multiply. | Multiplies the top stack value by an integer. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMultEq` | `HB_BOOL hb_xvmMultEq( void )` | None | Performs multiplication assignment on the top two stack values. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmMultEqPop` | `HB_BOOL hb_xvmMultEqPop( void )` | None | Performs multiplication assignment and pops the result from the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmNegate` | `HB_BOOL hb_xvmNegate( void )` | None | Negates the top stack value. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmNot` | `HB_BOOL hb_xvmNot( void )` | None | Performs logical NOT on the top stack value. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmOr` | `HB_BOOL hb_xvmOr( void )` | None | Performs logical OR on the top two stack values. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPlus` | `HB_BOOL hb_xvmPlus( void )` | None | Adds the top two stack values. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPlusEq` | `HB_BOOL hb_xvmPlusEq( void )` | None | Performs addition assignment on the top two stack values. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPlusEqPop` | `HB_BOOL hb_xvmPlusEqPop( void )` | None | Performs addition assignment and pops the result from the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopAlias` | `HB_BOOL hb_xvmPopAlias( void )` | None | Pops the top stack value as an alias. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopAliasedField` | `HB_BOOL hb_xvmPopAliasedField( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the aliased field. | Pops the top stack value into an aliased field. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopAliasedFieldExt` | `HB_BOOL hb_xvmPopAliasedFieldExt( PHB_SYMB pAlias, PHB_SYMB pField )` | `pAlias`: The alias symbol. <br> `pField`: The field symbol. | Pops the top stack value into an extended aliased field. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopAliasedVar` | `HB_BOOL hb_xvmPopAliasedVar( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the aliased variable. | Pops the top stack value into an aliased variable. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopField` | `HB_BOOL hb_xvmPopField( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the field. | Pops the top stack value into a field. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopLocal` | `HB_BOOL hb_xvmPopLocal( HB_SHORT iLocal )` | `iLocal`: The local variable index. | Pops the top stack value into a local variable. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopLogical` | `HB_BOOL hb_xvmPopLogical( HB_BOOL * pfValue )` | `pfValue`: Pointer to store the logical value. | Pops the top stack value as a logical value. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopMemvar` | `HB_BOOL hb_xvmPopMemvar( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the memory variable. | Pops the top stack value into a memory variable. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPopVariable` | `HB_BOOL hb_xvmPopVariable( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the variable. | Pops the top stack value into a variable. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushAlias` | `HB_BOOL hb_xvmPushAlias( void )` | None | Pushes the current alias onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushAliasedField` | `HB_BOOL hb_xvmPushAliasedField( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the aliased field. | Pushes an aliased field onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushAliasedFieldExt` | `HB_BOOL hb_xvmPushAliasedFieldExt( PHB_SYMB pAlias, PHB_SYMB pField )` | `pAlias`: The alias symbol. <br> `pField`: The field symbol. | Pushes an extended aliased field onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushAliasedVar` | `HB_BOOL hb_xvmPushAliasedVar( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the aliased variable. | Pushes an aliased variable onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushBlock` | `void hb_xvmPushBlock( const HB_BYTE * pCode, PHB_SYMB pSymbols )` | `pCode`: The bytecode for the block. <br> `pSymbols`: The symbols for the block. | Pushes a block of code onto the stack. | None |
+| `hb_xvmPushBlockShort` | `void hb_xvmPushBlockShort( const HB_BYTE * pCode, PHB_SYMB pSymbols )` | `pCode`: The bytecode for the block. <br> `pSymbols`: The symbols for the block. | Pushes a short block of code onto the stack. | None |
+| `hb_xvmPushField` | `HB_BOOL hb_xvmPushField( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the field. | Pushes a field onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushFuncSymbol` | `void hb_xvmPushFuncSymbol( PHB_SYMB pSym )` | `pSym`: The function symbol. | Pushes a function symbol onto the stack. | None |
+| `hb_xvmPushLocal` | `void hb_xvmPushLocal( HB_SHORT iLocal )` | `iLocal`: The local variable index. | Pushes a local variable onto the stack. | None |
+| `hb_xvmPushLocalByRef` | `void hb_xvmPushLocalByRef( HB_SHORT iLocal )` | `iLocal`: The local variable index. | Pushes a local variable by reference onto the stack. | None |
+| `hb_xvmPushLongLong` | `void hb_xvmPushLongLong( HB_LONGLONG llNumber )` | `llNumber`: The long long integer value. | Pushes a long long integer onto the stack. | None |
+| `hb_xvmPushMemvar` | `HB_BOOL hb_xvmPushMemvar( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the memory variable. | Pushes a memory variable onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushMemvarByRef` | `HB_BOOL hb_xvmPushMemvarByRef( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the memory variable. | Pushes a memory variable by reference onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushObjectVarRef` | `HB_BOOL hb_xvmPushObjectVarRef( void )` | None | Pushes a reference to an object variable onto the stack. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmPushSelf` | `void hb_xvmPushSelf( void )` | None | Pushes the self object onto the stack. | None |
+| `hb_xvmPushStatic` | `void hb_xvmPushStatic( HB_USHORT uiStatic )` | `uiStatic`: The static variable index. | Pushes a static variable onto the stack. | None |
+| `hb_xvmPushStaticByRef` | `void hb_xvmPushStaticByRef( HB_USHORT uiStatic )` | `uiStatic`: The static variable index. | Pushes a static variable by reference onto the stack. | None |
+| `hb_xvmPushStringHidden` | `void hb_xvmPushStringHidden( int iMethod, const char * szText, HB_SIZE nSize )` | `iMethod`: The method identifier. <br> `szText`: The string text. <br> `nSize`: The size of the string. | Pushes a hidden string onto the stack. | None |
+| `hb_xvmRetInt` | `void hb_xvmRetInt( HB_LONG lValue )` | `lValue`: The integer value to return. | Returns an integer value. | None |
+| `hb_xvmRetNil` | `void hb_xvmRetNil( void )` | None | Returns a nil value. | None |
+| `hb_xvmRetValue` | `void hb_xvmRetValue( void )` | None | Returns the top stack value. | None |
+| `hb_xvmSFrame` | `void hb_xvmSFrame( PHB_SYMB pSymbol )` | `pSymbol`: The symbol of the statics frame. | Sets the statics frame for a function. | None |
+| `hb_xvmSend` | `HB_BOOL hb_xvmSend( HB_USHORT uiParams )` | `uiParams`: The number of parameters. | Sends a message with the specified number of parameters. | Returns `HB_TRUE` on success, `HB_FALSE` on failure. |
+| `hb_xvmSetLine` | `void hb_xvmSetLine( HB_USHORT uiLine )` | `uiLine`: The line number. | Sets the current line number in the virtual machine. | None |
+| `hb_xvmStatics` | `void hb_xvmStatics( PHB_SYMB pSymbol, HB_USHORT uiStatics )` | `pSymbol`: The symbol of the statics. <br> `uiStatics`: The number of statics. | Initializes or redimensions the global statics array. | None |
+| `hb_xvmThreadStatics` | `void hb_xvmThreadStatics( HB_USHORT uiStatics, const HB_BYTE * statics )` | `uiStatics`: The number of thread statics. <br> `statics`: The statics bytecode. | Initializes thread static variables. | None |
+| `hb_xvmVFrame` | `void hb_xvmVFrame( int iLocals, int iParams )` | `iLocals`: The number of local variables. <br> `iParams`: The number of parameters. | Increases the stack pointer for the specified number of locals and variable number of params. | None |
 
