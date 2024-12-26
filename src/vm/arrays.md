@@ -1,7 +1,5 @@
 # arrays.c (C Level) Functions Documentation
 
-# Array API (C Level) Functions Documentation
-
 | Function Name | Signature | Parameters | Description | Return Value |
 |---------------|------------|------------|-------------|--------------|
 | `hb_arrayAdd` | `HB_BOOL hb_arrayAdd( PHB_ITEM pArray, PHB_ITEM pValue )` | `pArray` - The array to add the value to. `pValue` - The value to add. | Adds an item to the array. | `HB_TRUE` if successful, otherwise `HB_FALSE`. |
