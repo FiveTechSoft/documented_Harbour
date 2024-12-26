@@ -1,4 +1,4 @@
-# Array API (C Level) Functions Documentation
+# arrays.c (C Level) Functions Documentation
 
 | Function Name | Signature | Parameters | Returns | Description |
 |---------------|------------|------------|---------|-------------|
